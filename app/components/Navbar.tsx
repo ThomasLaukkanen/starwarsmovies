@@ -38,7 +38,6 @@ export default function Navbar() {
             </Link>
           </div>
           
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-4">
             {navLinks.map((link) => (
               <Link
@@ -51,7 +50,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Hamburger Button */}
           <button
             onClick={toggleMenu}
             className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none"
@@ -76,7 +74,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu Full Screen */}
         <div
           className={`fixed inset-0 bg-white dark:bg-black bg-opacity-95 dark:bg-opacity-95 backdrop-blur-sm z-50 md:hidden transform transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"

@@ -5,7 +5,7 @@ export default function StarsLogo({ size = 24 }: { size?: number }) {
       alt="Star Wars Logo"
       width={size}
       height={size}
-      className="object-contain"
+      className="object-contain dark:invert dark:brightness-0 dark:contrast-200"
       style={{ width: size, height: size }}
     />
   );

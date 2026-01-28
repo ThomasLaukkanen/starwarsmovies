@@ -51,7 +51,7 @@ export default async function FilmPage({ params }: { params: Promise<{ id: strin
   
   if (!film) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black">
         <main className="flex min-h-screen w-full max-w-6xl flex-col items-center justify-center py-32 px-16 bg-white dark:bg-black mx-auto">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Film not found</h1>
           <Link href="/" className="text-blue-600 dark:text-blue-400 hover:underline">

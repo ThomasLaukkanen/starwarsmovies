@@ -20,7 +20,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
   
   if (!character) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black ">
         <main className="flex min-h-screen w-full max-w-6xl flex-col items-center justify-center py-32 px-16 bg-white dark:bg-black mx-auto">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Character not found</h1>
           <Link href="/characters" className="text-blue-600 dark:text-blue-400 hover:underline">
@@ -32,7 +32,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black ">
       <main className="flex min-h-screen w-full max-w-6xl flex-col py-16 px-4 sm:px-8 md:px-16 bg-white dark:bg-black mx-auto">
         <Link 
           href="/characters" 
