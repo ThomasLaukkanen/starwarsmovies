@@ -5,14 +5,24 @@ import { useMovieContext } from '../context/MovieContext';
 import { Character } from '../types';
 
 export default function CharactersPage() {
-  const { getAllCharacters } = useMovieContext();
+  const { getAllCharacters, clearAll } = useMovieContext();
   const characters = getAllCharacters();
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black ">
       <main className="flex min-h-screen w-full max-w-6xl flex-col py-16 px-4 sm:px-8 md:px-16 bg-white dark:bg-black sm:items-start mx-auto">
         <div className="w-full">
-          <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Star Wars Characters</h1>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Star Wars Characters</h1>
+            {characters.length > 0 && (
+              <button
+                onClick={clearAll}
+                className="px-4 py-2 text-sm rounded-lg bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 transition-colors self-start sm:self-auto"
+              >
+                Clear Characters
+              </button>
+            )}
+          </div>
           {characters.length > 0 ? (
             <>
               <p className="text-gray-600 dark:text-gray-400 mb-6">

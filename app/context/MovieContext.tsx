@@ -8,6 +8,7 @@ interface MovieContextType {
   charactersByMovie: Record<string, Character[]>;
   addViewedMovie: (movieUrl: string, characters: Character[]) => void;
   getAllCharacters: () => Character[];
+  clearAll: () => void;
 }
 
 const MovieContext = createContext<MovieContextType | undefined>(undefined);
@@ -65,8 +66,17 @@ export function MovieProvider({ children }: { children: ReactNode }) {
     return Array.from(characterMap.values());
   };
 
+  const clearAll = () => {
+    setViewedMovies([]);
+    setCharactersByMovie({});
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('starwars-viewed-movies');
+      localStorage.removeItem('starwars-characters');
+    }
+  };
+
   return (
-    <MovieContext.Provider value={{ viewedMovies, charactersByMovie, addViewedMovie, getAllCharacters }}>
+    <MovieContext.Provider value={{ viewedMovies, charactersByMovie, addViewedMovie, getAllCharacters, clearAll }}>
       {children}
     </MovieContext.Provider>
   );
