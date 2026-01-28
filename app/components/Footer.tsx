@@ -16,7 +16,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Navigation Links */}
           <div>
             <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
               Explore
@@ -73,7 +72,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* API Credit */}
+        
           <div>
             <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
               Data Source
@@ -96,7 +95,7 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              © {new Date().getFullYear()} Star Wars Explorer. Not affiliated with Lucasfilm or Disney.
+              © {new Date().getFullYear()} - Craft of Thomas Laukkanen
             </p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               May the Force be with you

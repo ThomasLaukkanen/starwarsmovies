@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <MovieProvider>
           <Navbar />
-          <main className="flex-grow pt-8 pb-12">
+          <main className="flex-grow ">
             {children}
           </main>
           <Footer />
