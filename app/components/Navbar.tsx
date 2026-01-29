@@ -29,6 +29,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    // Prevent body scroll when menu is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -99,9 +113,10 @@ export default function Navbar() {
         </div>
 
         <div
-          className={`fixed inset-0 bg-white dark:bg-black bg-opacity-95 dark:bg-opacity-95 backdrop-blur-sm z-50 md:hidden transform transition-transform duration-300 ease-in-out ${
+          className={`fixed top-0 left-0 right-0 bottom-0 w-screen h-screen bg-white z-[100] md:hidden transform transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
+          style={{ backgroundColor: '#ffffff', minHeight: '100vh', height: '100vh' }}
         >
           <div className="flex flex-col h-full pt-20 px-6">
             {/* Close Button */}
