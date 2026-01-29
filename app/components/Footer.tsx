@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <StarsLogo size={100} />
+              <StarsLogo size={150} />
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Explore the galaxy far, far away. Discover films, characters, planets, and more from the Star Wars universe.

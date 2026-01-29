@@ -68,7 +68,7 @@ export default function Navbar() {
               className="flex items-center hover:opacity-80 transition-opacity"
               onClick={closeMenu}
             >
-              <StarsLogo size={120} />
+              <StarsLogo size={100} />
             </Link>
           </div>
           
