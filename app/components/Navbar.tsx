@@ -146,7 +146,7 @@ export default function Navbar() {
               </Link>
             </div>
 
-            <div className="space-y-0">
+            <div className="space-y-0 flex-grow">
               {navLinks.map((link, index) => (
                 <div key={link.href}>
                   <Link
@@ -158,6 +158,12 @@ export default function Navbar() {
                   </Link>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-auto pb-8 text-center">
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                May the Force be with you
+              </p>
             </div>
           </div>
         </div>
