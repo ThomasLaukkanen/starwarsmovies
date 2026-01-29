@@ -1,14 +1,7 @@
+import { getAllSpecies } from '../lib/species';
+
 export default async function SpeciesPage() {
-  let species = [];
-  
-  try {
-    const response = await fetch("https://swapi.info/api/species", {
-      cache: 'no-store'
-    });
-    species = await response.json();
-  } catch (error) {
-    console.error("Error fetching species:", error);
-  }
+  const species = await getAllSpecies();
   
   return (
     <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black ">

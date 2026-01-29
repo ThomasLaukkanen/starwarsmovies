@@ -1,14 +1,7 @@
+import { getAllStarships } from '../lib/starships';
+
 export default async function StarshipsPage() {
-  let starships = [];
-  
-  try {
-    const response = await fetch("https://swapi.info/api/starships", {
-      cache: 'no-store'
-    });
-    starships = await response.json();
-  } catch (error) {
-    console.error("Error fetching starships:", error);
-  }
+  const starships = await getAllStarships();
   
   return (
     <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black">

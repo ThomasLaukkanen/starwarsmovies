@@ -1,14 +1,7 @@
+import { getAllVehicles } from '../lib/vehicles';
+
 export default async function VehiclesPage() {
-  let vehicles = [];
-  
-  try {
-    const response = await fetch("https://swapi.info/api/vehicles", {
-      cache: 'no-store'
-    });
-    vehicles = await response.json();
-  } catch (error) {
-    console.error("Error fetching vehicles:", error);
-  }
+  const vehicles = await getAllVehicles();
   
   return (
     <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black ">

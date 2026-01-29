@@ -1,22 +1,11 @@
 import Link from 'next/link';
-import { Film } from './types';
 import Loader from './components/Loader';
 import FilmsList from './components/FilmsList';
+import { getAllFilms } from './lib/films';
 
 export default async function Home() {
-  let films: Film[] = [];
-  let isLoading = true;
-  
-  try {
-    const response = await fetch("https://swapi.info/api/films", {
-      cache: 'no-store'
-    });
-    films = await response.json();
-    isLoading = false;
-  } catch (error) {
-    console.error("Error fetching films:", error);
-    isLoading = false;
-  }
+  const films = await getAllFilms();
+  const isLoading = false;
   
   return (
     <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black py-16 rounded-2xl">

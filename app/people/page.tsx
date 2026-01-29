@@ -1,14 +1,7 @@
+import { getAllCharacters } from '../lib/characters';
+
 export default async function PeoplePage() {
-  let people = [];
-  
-  try {
-    const response = await fetch("https://swapi.info/api/people", {
-      cache: 'no-store'
-    });
-    people = await response.json();
-  } catch (error) {
-    console.error("Error fetching people:", error);
-  }
+  const people = await getAllCharacters();
   
   return (
     <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black">

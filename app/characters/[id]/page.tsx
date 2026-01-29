@@ -1,22 +1,9 @@
 import Link from 'next/link';
-import { Character } from '../../types';
-
-async function getCharacter(id: string): Promise<Character | null> {
-  try {
-    const response = await fetch(`https://swapi.info/api/people/${id}`, {
-      cache: 'no-store'
-    });
-    if (!response.ok) return null;
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching character:', error);
-    return null;
-  }
-}
+import { getCharacterById } from '../../lib/characters';
 
 export default async function CharacterPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const character = await getCharacter(id);
+  const character = await getCharacterById(id);
   
   if (!character) {
     return (

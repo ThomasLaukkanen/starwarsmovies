@@ -1,14 +1,7 @@
+import { getAllPlanets } from '../lib/planets';
+
 export default async function PlanetsPage() {
-  let planets = [];
-  
-  try {
-    const response = await fetch("https://swapi.info/api/planets", {
-      cache: 'no-store'
-    });
-    planets = await response.json();
-  } catch (error) {
-    console.error("Error fetching planets:", error);
-  }
+  const planets = await getAllPlanets();
   
   return (
     <div className="flex min-h-screen items-center justify-center bg-white font-sans dark:bg-black ">
