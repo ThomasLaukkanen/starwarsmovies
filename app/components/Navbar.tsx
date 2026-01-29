@@ -13,11 +13,9 @@ export default function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Show navbar when at top or scrolling up
       if (currentScrollY < lastScrollY || currentScrollY < 10) {
         setIsVisible(true);
       } 
-      // Hide navbar when scrolling down
       else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       }
@@ -30,14 +28,12 @@ export default function Navbar() {
   }, [lastScrollY]);
 
   useEffect(() => {
-    // Prevent body scroll when menu is open
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-    
-    // Cleanup on unmount
+
     return () => {
       document.body.style.overflow = '';
     };
@@ -119,7 +115,6 @@ export default function Navbar() {
           style={{ backgroundColor: '#ffffff', minHeight: '100vh', height: '100vh' }}
         >
           <div className="flex flex-col h-full pt-20 px-6">
-            {/* Close Button */}
             <button
               onClick={closeMenu}
               className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -141,7 +136,6 @@ export default function Navbar() {
               </svg>
             </button>
 
-            {/* Star Wars Logo */}
             <div className="flex justify-center mb-8">
               <Link 
                 href="/" 
@@ -152,7 +146,6 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Menu Links */}
             <div className="space-y-0">
               {navLinks.map((link, index) => (
                 <div key={link.href}>

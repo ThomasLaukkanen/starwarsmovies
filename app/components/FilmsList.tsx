@@ -33,7 +33,6 @@ export default function FilmsList({ films, isLoading }: { films: Film[]; isLoadi
 
   return (
     <>
-      {/* Sort Controls */}
       <div className="flex items-center gap-4 mb-6">
         <span className="text-sm text-gray-600 dark:text-gray-400">Sort by:</span>
         <div className="flex gap-2">
@@ -70,7 +69,6 @@ export default function FilmsList({ films, isLoading }: { films: Film[]; isLoadi
         </div>
       </div>
 
-      {/* Films List */}
       <div className="space-y-4">
         {sortedFilms.map((film) => {
           const filmId = film.url?.split('/').filter(Boolean).pop() || film.episode_id.toString();

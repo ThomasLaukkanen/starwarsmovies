@@ -4,13 +4,11 @@ import FilmPageClient from './FilmPageClient';
 
 async function getFilm(id: string): Promise<Film | null> {
   try {
-    // Try fetching by ID first, if that fails, fetch all and find by episode_id or URL
     let response = await fetch(`https://swapi.info/api/films/${id}`, {
       cache: 'no-store'
     });
     
     if (!response.ok) {
-      // Fallback: fetch all films and find the one matching the ID
       const allFilmsResponse = await fetch('https://swapi.info/api/films', {
         cache: 'no-store'
       });
@@ -62,7 +60,7 @@ export default async function FilmPage({ params }: { params: Promise<{ id: strin
     );
   }
 
-  const characters = await getCharacters(film.characters.slice(0, 10)); // Limit to first 10 for performance
+  const characters = await getCharacters(film.characters.slice(0, 10));
 
   return (
     <FilmPageClient film={film} characters={characters} />

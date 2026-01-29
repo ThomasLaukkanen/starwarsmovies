@@ -17,7 +17,6 @@ export function MovieProvider({ children }: { children: ReactNode }) {
   const [viewedMovies, setViewedMovies] = useState<string[]>([]);
   const [charactersByMovie, setCharactersByMovie] = useState<Record<string, Character[]>>({});
 
-  // Load from localStorage on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('starwars-viewed-movies');
@@ -32,7 +31,6 @@ export function MovieProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // Save to localStorage whenever state changes
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('starwars-viewed-movies', JSON.stringify(viewedMovies));
@@ -54,7 +52,6 @@ export function MovieProvider({ children }: { children: ReactNode }) {
     const allCharacters: Character[] = [];
     const characterMap = new Map<string, Character>();
 
-    // Collect all unique characters from viewed movies
     Object.values(charactersByMovie).forEach(characters => {
       characters.forEach(character => {
         if (!characterMap.has(character.url)) {
